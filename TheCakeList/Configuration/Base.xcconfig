@@ -1,0 +1,11 @@
+//
+//  Base.xcconfig
+//  TheCakeList
+//
+//  Created by Dhiranjana Yadav on 10/09/2026.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+CAKE_API_URL = https:/$()/raw.githubusercontent.com/Waracle/mobile-coding-test-api/refs/heads/main/cakes

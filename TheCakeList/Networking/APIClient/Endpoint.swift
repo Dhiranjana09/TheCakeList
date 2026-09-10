@@ -17,7 +17,7 @@ extension Endpoint {
         request.httpMethod = method.rawValue
         request.timeoutInterval = 15
         request.cachePolicy = .reloadIgnoringLocalCacheData
-
+        
         return request
     }
 }

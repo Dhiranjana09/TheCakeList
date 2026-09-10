@@ -11,7 +11,7 @@ import SwiftUI
 struct TheCakeListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CakeListView()
         }
     }
 }

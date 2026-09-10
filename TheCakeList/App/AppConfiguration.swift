@@ -19,7 +19,7 @@ enum AppConfiguration {
                 "Missing or invalid CAKE_API_URL configuration."
             )
         }
-
+        
         return url
     }()
 }

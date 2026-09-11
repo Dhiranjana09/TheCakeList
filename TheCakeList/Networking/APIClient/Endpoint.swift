@@ -7,16 +7,14 @@
 import Foundation
 
 nonisolated protocol Endpoint: Sendable {
-    var url: URL { get }
+    var path: String { get }
     var method: HTTPMethod { get }
 }
 
 extension Endpoint {
-    nonisolated func makeRequest() -> URLRequest {
-        var request = URLRequest(url: url)
+    nonisolated func makeRequest(baseURL: URL) -> URLRequest {
+        var request = URLRequest(url: baseURL.appending(path: path))
         request.httpMethod = method.rawValue
-        request.timeoutInterval = 15
-        request.cachePolicy = .reloadIgnoringLocalCacheData
         
         return request
     }

@@ -14,10 +14,13 @@ extension HTTPURLResponse {
 
 nonisolated final class URLSessionAPIClient: APIClient {
     private let session: URLSession
+    private let baseURL: URL
     
     init(
-        session: URLSession = .shared,
+        baseURL: URL,
+        session: URLSession
     ) {
+        self.baseURL = baseURL
         self.session = session
     }
     
@@ -26,7 +29,7 @@ nonisolated final class URLSessionAPIClient: APIClient {
         _ endpoint: Endpoint,
         responseType: Response.Type
     ) async throws -> Response {
-        let request = endpoint.makeRequest()
+        let request = endpoint.makeRequest(baseURL: baseURL)
         
         do {
             let (data, response) = try await session.data(for: request)

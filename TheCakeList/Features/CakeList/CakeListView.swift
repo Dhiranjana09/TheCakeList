@@ -6,17 +6,12 @@
 //
 import SwiftUI
 
-@MainActor
 struct CakeListView: View {
-    @StateObject private var viewModel: CakeListViewModel
+    @State private var viewModel: CakeListViewModel
     @State private var selectedCake: Cake?
     
-    init(viewModel: CakeListViewModel? = nil) {
-        _viewModel = StateObject(
-            wrappedValue: viewModel ?? CakeListViewModel(
-                cakeService: RemoteCakeService()
-            )
-        )
+    init(viewModel: @autoclosure @escaping () -> CakeListViewModel) {
+        _viewModel = State(wrappedValue: viewModel())
     }
     
     var body: some View {

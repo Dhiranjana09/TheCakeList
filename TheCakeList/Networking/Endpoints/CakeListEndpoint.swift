@@ -7,6 +7,6 @@
 import Foundation
 
 nonisolated struct CakeListEndpoint: Endpoint {
-    let url: URL = AppConfiguration.cakeListURL
+    let path: String = "cakes"
     let method = HTTPMethod.get
 }

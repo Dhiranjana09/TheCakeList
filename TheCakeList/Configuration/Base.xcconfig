@@ -8,4 +8,4 @@
 // Configuration settings file format documentation can be found at:
 // https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
 
-CAKE_API_URL = https:/$()/raw.githubusercontent.com/Waracle/mobile-coding-test-api/refs/heads/main/cakes
+API_BASE_URL = https:/$()/raw.githubusercontent.com/Waracle/mobile-coding-test-api/refs/heads/main

@@ -4,8 +4,8 @@
 //
 //  Created by Dhiranjana Yadav on 10/09/2026.
 //
-import Combine
 import Foundation
+import Observation
 
 enum CakeListViewState: Equatable {
     case idle
@@ -16,11 +16,11 @@ enum CakeListViewState: Equatable {
     case error(String)
 }
 
-@MainActor
-final class CakeListViewModel: ObservableObject {
-    @Published private(set) var state: CakeListViewState = .idle
+@Observable
+final class CakeListViewModel {
+    private(set) var state: CakeListViewState = .idle
     
-    private let cakeService: CakeService
+    @ObservationIgnored private let cakeService: CakeService
     
     init(cakeService: CakeService) {
         self.cakeService = cakeService

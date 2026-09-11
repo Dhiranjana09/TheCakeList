@@ -8,18 +8,11 @@
 import Foundation
 
 enum AppConfiguration {
-    nonisolated static let cakeListURL: URL = {
+    nonisolated static func apiBaseURL(bundle: Bundle = .main) -> URL? {
         guard
-            let urlString = Bundle.main.object(
-                forInfoDictionaryKey: "CAKE_API_URL"
-            ) as? String,
+            let urlString = bundle.object(forInfoDictionaryKey: "API_BASE_URL") as? String,
             let url = URL(string: urlString)
-        else {
-            preconditionFailure(
-                "Missing or invalid CAKE_API_URL configuration."
-            )
-        }
-        
+        else { return nil }
         return url
-    }()
+    }
 }

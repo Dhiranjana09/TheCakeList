@@ -12,6 +12,8 @@ nonisolated struct Cake: Codable, Equatable, Hashable, Identifiable, Sendable {
     let description: String
     let imageURLString: String
 
+    // No id supplied by server. Added a workaround.
+    // TODO: Future proof this with a proper id.
     var id: String {
         "\(title)|\(description)|\(imageURLString)"
     }

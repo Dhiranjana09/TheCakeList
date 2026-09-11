@@ -7,15 +7,15 @@
 import SwiftUI
 
 struct CakeRowView: View {
-    let viewModel: CakeRowViewModel
+    let cake: Cake
     
     var body: some View {
         HStack(spacing: 12) {
-            CakeImage(url: viewModel.imageURL)
+            CakeImage(url: cake.imageURL)
             .frame(width: 72, height: 72)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             
-            Text(viewModel.title)
+            Text(cake.title)
                 .font(.headline)
                 .foregroundStyle(.primary)
         }

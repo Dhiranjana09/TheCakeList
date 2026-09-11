@@ -26,6 +26,7 @@ final class CakeListViewModel {
         self.cakeService = cakeService
     }
     
+    // TODO: Handle in-flight requests (cancel/wait for previous)
     func loadCakes() async {
         state = .loading
         
@@ -33,6 +34,7 @@ final class CakeListViewModel {
             let cakes = try await cakeService.fetchCakes()
             state = .loaded(process(cakes))
         } catch {
+            // TODO: Handle client errors with contextual error messages.
             state = .error(AppStrings.CakeList.loadErrorMessage)
         }
     }

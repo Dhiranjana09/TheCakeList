@@ -14,6 +14,7 @@ struct CakeListView: View {
         _viewModel = State(wrappedValue: viewModel())
     }
     
+    // TODO: Add pagination if content grows
     var body: some View {
         NavigationStack {
             content
@@ -43,9 +44,7 @@ struct CakeListView: View {
                 Button {
                     selectedCake = cake
                 } label: {
-                    CakeRowView(
-                        viewModel: CakeRowViewModel(cake: cake)
-                    )
+                    CakeRowView(cake: cake)
                 }
                 .buttonStyle(.plain)
                 .listRowSeparator(.visible)

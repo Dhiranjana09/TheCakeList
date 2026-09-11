@@ -17,7 +17,7 @@ struct CakeImage: View {
             case .success(let image):
                 image
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
             case .empty:
                 ProgressView()
                 

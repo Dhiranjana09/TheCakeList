@@ -17,5 +17,7 @@ enum AppStrings {
         static let retryButtonTitle = "Try Again"
         static let refreshErrorTitle = "Refresh Failed"
         static let okButtonTitle = "Ok"
+        static let closeButtonTitle = "Close"
+        static let ImageUnavailableLabel = "Image Unavailable"
     }
 }

@@ -56,6 +56,11 @@ final class CakeListViewModel {
             let cakes = try await cakeService.fetchCakes()
             state = .loaded(process(cakes))
         } catch {
+            guard !Task.isCancelled else {
+                state = .loaded(existingCakes)
+                return
+            }
+            
             state = .refreshFailed(
                 cakes: existingCakes,
                 message: AppStrings.CakeList.loadErrorMessage

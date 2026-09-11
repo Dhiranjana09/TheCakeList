@@ -17,6 +17,7 @@ struct CakeListView: View {
     var body: some View {
         NavigationStack {
             content
+                .animation(.easeOut(duration: 0.3), value: viewModel.state)
                 .navigationTitle(AppStrings.CakeList.navigationTitle)
                 .task {
                     if viewModel.state == .idle {
@@ -49,6 +50,7 @@ struct CakeListView: View {
                 .buttonStyle(.plain)
                 .listRowSeparator(.visible)
             }
+            .transition(.opacity.combined(with: .move(edge: .top)))
             .refreshable {
                 await viewModel.refreshCakes()
             }.alert(
